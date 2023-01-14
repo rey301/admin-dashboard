@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+html {
+    line-height: 1.15; 
+
+    --negative-font: #f8fafc;
+    --positive-font: black;
+    --navbar-bgd: #1e293b;
+    --dashboard-bgd: #e2e8f0;
+    --card-bgd: #f8fafc;
+    --header-bgd: #f8fafc;
+}
+
 body {
     /* border: 10px dashed black; */
     border-radius: 10px;
@@ -11,9 +22,10 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100vh;
 
+    /* Layout of the whole page */
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 150px 1fr;
+    grid-template-columns: 1fr 4.5fr;
+    grid-template-rows: 200px 4fr;
 }
 
 ul {
@@ -22,25 +34,24 @@ ul {
     padding: 0;
 }
 
-.navbar {
+.weighted {
+    font-weight: 500;
+}
+
+/* Navigation bar */
+nav {
     grid-row: span 2;
 
     display: grid;
     grid-template-columns: 40px 1fr;
     gap: 10px;
 
-    background-color: #047857;
-    color: #ecfdf5; 
+    background-color: var(--navbar-bgd);
+    color: var(--negative-font); 
     padding: 20px;
     align-items: center;
     align-content: start;
     justify-content: start;
-    font-weight: 500;
-}
-
-
-.navbar > * {
-    /* border: 1px solid blue; */
 }
 
     .settings, .home {
@@ -76,48 +87,176 @@ ul {
         }
 
         .logo > .flex-container1 > *, .logo > .flex-container2 > *  {
-            background-color: #ecfdf5;
+            background-color: var(--negative-font);
         }
 
     svg.nav-icon {
         width: 25px;
         padding: 0;
-        color: #ecfdf5;
+        color: var(--negative-font);
         justify-self: center;
     }
 
     .nav-text {
         font-size: 1em;
     }
+    
+/* Header section */
+header {
+    background-color: var(--header-bgd);
 
-.header {
-    background-color: #ecfdf5;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    align-content: space-between;
+    gap: 0;
+
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.content {
+    header > section:first-child {
+        /* border: 1px dashed blue; */
+
+        display: grid;
+        grid-template-columns: 7fr 2fr;
+        gap: 10%;
+        align-content: center;
+    }
+
+    header > section:first-child > * {
+        /* border: 1px solid black; */
+    }
+
+        .profile-img {
+            flex-shrink: 0;
+            background-color: rgb(215, 215, 51);
+            border-radius: 100%;
+        }
+
+        .notification-section > .profile-img {
+            height: 45px;
+            width: 45px;
+        }
+
+        .search-section, .notification-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-section {
+            gap: 5px;
+        }
+
+        .search-section > #site-search {
+            flex: 1;
+            border-radius: 20px;
+            background-color: var(--dashboard-bgd);
+            border-style: none;
+            outline: none;
+
+            height: 35px;
+            padding: 20px;
+        }
+
+        .notification-section {
+
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            flex-shrink: 0;
+        }
+
+        .notification-seciton > div:last-child {
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    
+        .notification-icon {
+            flex-shrink: 0;
+            color: var(--navbar-bgd);
+        }
+
+    header > section:nth-child(2) {
+        /* border: 1px dashed black; */
+        display: flex;
+        justify-content: space-between;       
+    }
+
+        .profile-section {
+            /* border: 1px dashed black; */
+
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 3fr;
+
+            row-gap: 4px;
+            column-gap: 20px;
+        }
+
+            .profile-section > .profile-img {
+                grid-row: 1 / 3;
+                justify-self: center;
+                align-self: center;
+
+                height: 75px;
+                width: 75px;
+            }
+
+            .profile-section > div:nth-child(2) {
+                font-size: 0.8em;
+                align-self: end;
+            }
+
+            .profile-section > div:nth-child(3) {
+                align-self: start;
+                font-size: 1.2em;
+            }
+    
+        .button-section {
+            /* border: 1px solid blue; */
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+            button {
+                background-color: var(--navbar-bgd);
+                color: var(--negative-font);
+                border: none;
+                border-radius: 20px;
+
+                height: 40px;
+                width: 80px;
+            }
+    
+/* Dashboard */
+main {
     display: flex;
     flex-wrap: wrap;
     /* grid-template-columns: 4.5fr 1fr; */
 
     gap: 20px;
 
-    background-color: #d1fae5;
-    padding: 40px;
+    background-color: var(--dashboard-bgd);
+    padding-top: 20px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 30px;
 }   
 
     /* Contains project cards */
     .project-container {
-        flex: 1 1 70%;
-
-        /* border: 2px dashed black; */
+        flex: 1 1 75%;
         display: flex;
         flex-direction: column;
-
-
     }
 
         .project-cards {
-            /* border: 2px solid black; */
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
             gap: 20px;
@@ -127,12 +266,10 @@ ul {
 
     /* Contains announcement and trending cards */
     .side-container {
-        flex: 1 1 200px;
+        flex: 1 1 150px;
         display: grid;
         grid-template-rows: 1fr 1fr;
         gap: 20px;
-
-        /* border: 2px dashed black; */
     }
 
         /* Flex items inside grid so that it can stretch to fit */
@@ -152,6 +289,6 @@ ul {
     .card {
         padding: 20px;
         border-radius: 8px;
-        background-color: #ecfdf5;
-        box-shadow: 5px 5px 3px rgb(190, 215, 198);
+        background-color: var(--card-bgd);
+        box-shadow: 5px 5px 3px rgb(163, 163, 163);
     }
