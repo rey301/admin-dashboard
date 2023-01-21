@@ -142,6 +142,20 @@ header {
             gap: 5px;
         }
 
+        @media all and (max-width: 800px) {
+            .notification-section > div:last-child {
+                display: none;
+            }
+
+            .nav-text, .dashboard {
+                display: none;
+            }
+
+            nav {
+                grid-template-columns: 40px;
+            }
+        }
+        
         .search-section > #site-search {
             flex: 1;
             border-radius: 20px;
@@ -162,16 +176,16 @@ header {
             flex-shrink: 0;
         }
 
-        .notification-section > div:last-child {
-            min-width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    
-        .notification-icon {
-            flex-shrink: 0;
-            color: var(--navbar-bgd);
-        }
+            .notification-section > div:last-child {
+                min-width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        
+            .notification-icon {
+                flex-shrink: 0;
+                color: var(--navbar-bgd);
+            }
     
     /* Second row on the header section */
     header > section:nth-child(2) {
