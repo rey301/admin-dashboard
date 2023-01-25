@@ -38,6 +38,10 @@ ul {
     font-weight: 500;
 }
 
+.card-content {
+    color: #6d6d6d;
+}
+
 /* Navigation bar */
 nav {
     grid-row: span 2;
@@ -146,7 +150,9 @@ header {
             .notification-section > div:last-child {
                 display: none;
             }
+        }
 
+        @media all and (max-width: 650px) {
             .nav-text, .dashboard {
                 display: none;
             }
@@ -155,7 +161,7 @@ header {
                 grid-template-columns: 40px;
             }
         }
-        
+
         .search-section > #site-search {
             flex: 1;
             border-radius: 20px;
@@ -255,7 +261,7 @@ header {
                 width: 80px;
             }
     
-/* Dashboard */
+/* Main Content - Dashboard */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -270,11 +276,16 @@ main {
     padding-right: 30px;
 }   
 
+    .card-title {
+        margin-bottom: 5px;
+    }
+
     /* Contains project cards */
     .project-container {
         flex: 1 1 75%;
         display: flex;
         flex-direction: column;
+
     }
 
         .project-cards {
@@ -284,6 +295,26 @@ main {
 
             height: 100%;
         }
+
+            .project-cards > * { 
+                box-sizing: border-box;
+                border-left: 8px solid #dc2626;
+
+                display: grid;
+                row-gap: 10px;
+                grid-template-rows: 2fr 1fr;
+            }
+
+                .project-icons {
+                    width: 100px;
+                    display: flex;
+                    justify-self: end;
+                    align-self: end;
+                }
+
+            .card-content {
+                grid-row: 1 2;
+            }
 
     /* Contains announcement and trending cards */
     .side-container {
@@ -301,14 +332,47 @@ main {
 
             .trending-card, .announcement-card {
                 height: 100%;
-            }
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }   
+
+                .announcement1, .announcement2 {
+                    border-bottom: 2px solid #dedede;
+                    padding-bottom: 10px;
+                }
+
+                .trending-card > * {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    grid-template-columns: min-content 3fr;
+                    gap: 10px;
+                }
+
+                .trending-card > * > .profile-img {
+                    grid-row: span 2;
+
+                    width: 50px;
+                    height: 50px;
+
+                    justify-self: start;
+                    align-self: center;
+                }
+
+                .trending-card > * > .handle {
+                    align-self: end;
+                }
+
+                .trending-card > * > .desc {
+                    align-self: start;
+                }
 
     .container-header {
         padding: 10px;
     }
     
     .card {
-        padding: 20px;
+        padding: 25px;
         border-radius: 8px;
         background-color: var(--card-bgd);
         box-shadow: 5px 5px 3px rgb(163, 163, 163);
